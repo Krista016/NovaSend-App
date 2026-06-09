@@ -39,8 +39,6 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y google-chrome-stable \
     && rm -rf /var/lib/apt/lists/*
-RUN playwright install-deps chromium \
-    && rm -rf /var/lib/apt/lists/*
 
 # ---------------------------------------------------------------------------
 # 4. Install Node.js dependencies
