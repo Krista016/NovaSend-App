@@ -1,15 +1,7 @@
-# =============================================================================
-# NovaSend - Railway Deployment Configuration
-# =============================================================================
-# Railway auto-detects the Dockerfile and uses it for builds.
-# The Dockerfile handles: Python deps, Node.js, Playwright, Vite build.
-# =============================================================================
-
 [build]
   builder = "dockerfile"
 
 [deploy]
-  healthcheckPath = "/api/status"
   restartPolicyType = "always"
 
 [service]
