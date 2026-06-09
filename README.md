@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# NovaSend
 
-# Run and deploy your AI Studio app
+NovaSend is a professional, self-hosted WhatsApp Web campaign automation and delivery management platform. It allows users to safely and efficiently execute bulk notification campaigns with advanced anti-blocking controls.
 
-This contains everything you need to run your app locally.
+## Key Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1qfxHB3vx29tMOMrC9c_IFeoJoCH3j0hm
+- **Anti-Blocking Delivery Pacing**: Fully customizable batch sizes, minimum/maximum delays, and hourly sending limits to mimic natural human behavior.
+- **Warm-Up Mode**: Automatically throttle message volume for newly connected accounts, ramping up limits dynamically day-by-day.
+- **Spintax & Personalization**: Native support for recursive spintax options (e.g. `{Hi|Hello} {FirstName}`) to generate unique messages per contact.
+- **Opt-Out Detection**: Scans active chats for opt-out trigger words (`stop`, `unsubscribe`, `exit`) to automatically mark contacts as unsubscribed and skip future sends.
+- **Diagnostics & Telemetry**: Track successful sends, failed attempts, session resets, and browser crashes per WhatsApp account directly from the UI.
+- **Modern User Interface**: A premium, responsive glassmorphic dashboard with customizable gradient theme palettes.
 
-## Run Locally
+## Technology Stack
 
-**Prerequisites:**  Node.js
+- **Frontend**: React, TypeScript, Tailwind CSS, Vite
+- **Backend**: Python, Flask, SQLAlchemy (SQLite database)
+- **Automation Engine**: Playwright-based browser controller with advanced stealth evasion parameters
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Prerequisites
+
+- Node.js (v18+)
+- Python (3.10+)
+
+### Setup & Run Locally
+
+1. **Install Frontend Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Install Backend Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Install Playwright Browser Drivers**:
+   ```bash
+   playwright install chromium
+   ```
+
+4. **Run the Application**:
+   - Start the backend server:
+     ```bash
+     python run.py
+     ```
+   - Start the Vite development server:
+     ```bash
+     npm run dev
+     ```
+
+## Deployment
+
+This repository includes a `Dockerfile` and `railway.toml` pre-configured for deployment on **Railway**. The Docker container will automatically build the React assets and run the Flask server to host the full application.
