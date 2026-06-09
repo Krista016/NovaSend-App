@@ -7,7 +7,7 @@
 # Railway auto-detects this Dockerfile and sets PORT from its own env.
 # =============================================================================
 
-FROM python:3.11-slim
+FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
