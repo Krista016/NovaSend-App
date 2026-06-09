@@ -23,3 +23,6 @@ playwright-stealth==1.0.6
 
 # --- System Monitoring (Admin Panel) ---
 psutil==7.0.0
+
+# --- HTTP client for local agent checks ---
+requests==2.32.3
