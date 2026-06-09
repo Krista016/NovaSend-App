@@ -4,11 +4,13 @@ import { GoogleGenAI, Type } from "@google/genai";
 // Ensure API_KEY is set in the environment variables
 const API_KEY = process.env.API_KEY;
 
-if (!API_KEY) {
-    console.warn("Gemini API key not found. AI features will be disabled.");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
+let ai: GoogleGenAI | null = null;
+const getAiClient = () => {
+    if (!ai && API_KEY) {
+        ai = new GoogleGenAI({ apiKey: API_KEY });
+    }
+    return ai;
+};
 
 /**
  * Generates campaign message variations using the Gemini API.
@@ -16,7 +18,8 @@ const ai = new GoogleGenAI({ apiKey: API_KEY! });
  * @returns A promise that resolves to an array of message variations.
  */
 export const generateCampaignCopy = async (goal: string): Promise<string[]> => {
-    if (!API_KEY) {
+    const aiClient = getAiClient();
+    if (!aiClient) {
         return ["AI features are disabled. Please configure your API key."];
     }
 
@@ -31,7 +34,7 @@ export const generateCampaignCopy = async (goal: string): Promise<string[]> => {
         
         Return the response as a JSON object with a single key "variations" which is an array of the 3 message strings.`;
 
-        const response = await ai.models.generateContent({
+        const response = await aiClient.models.generateContent({
             model: "gemini-2.5-flash",
             contents: prompt,
             config: {
@@ -83,7 +86,8 @@ export interface MessageAnalysis {
  * @returns A promise that resolves to a structured analysis object.
  */
 export const analyzeCampaignMessage = async (message: string): Promise<MessageAnalysis> => {
-    if (!API_KEY) {
+    const aiClient = getAiClient();
+    if (!aiClient) {
         throw new Error("AI features are disabled. Please configure your API key.");
     }
 
@@ -101,7 +105,7 @@ export const analyzeCampaignMessage = async (message: string): Promise<MessageAn
 
         Return the analysis as a JSON object.`;
 
-        const response = await ai.models.generateContent({
+        const response = await aiClient.models.generateContent({
             model: "gemini-2.5-flash",
             contents: prompt,
             config: {
