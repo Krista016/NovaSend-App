@@ -6,7 +6,7 @@
 # =============================================================================
 
 [build]
-  builder = "docker"
+  builder = "dockerfile"
 
 [deploy]
   healthcheckPath = "/api/status"
