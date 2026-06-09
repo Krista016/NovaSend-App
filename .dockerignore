@@ -1,0 +1,27 @@
+# Local Node/React build files
+node_modules/
+dist/
+
+# Local Python virtual environment
+novasend_venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local Database
+novasend.db
+
+# Diagnostic & Test artifacts
+*.png
+*.log
+*.zip
+playwright-report/
+test-results/
+.playwright-mcp/novasend_ghost_data/
+
+# Environment configurations
+.env
+.env.local
+.git
+.github

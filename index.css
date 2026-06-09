@@ -1,0 +1,161 @@
+/* NovaSend Global Styles */
+
+/* Scale entire UI to 80% of default browser size so 100% zoom looks correct */
+html {
+  font-size: 13px;
+}
+
+/* Dark mode scrollbar — site-wide, overrides all component-specific scrollbars */
+.dark * {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1f2937;
+}
+.dark ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+.dark ::-webkit-scrollbar-corner {
+  background: #1f2937;
+}
+
+.gemini-glow {
+  background-image: linear-gradient(to right, var(--gradient-from), var(--gradient-via), var(--gradient-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.time-picker-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.time-picker-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.time-picker-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #6b7280;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.time-picker-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+.utilities-scrollbar::-webkit-scrollbar {
+  width: 14px;
+}
+.utilities-scrollbar::-webkit-scrollbar-track {
+  background-color: #e2e8f0;
+}
+.utilities-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a0aec0;
+  border-radius: 7px;
+  border: 3px solid #e2e8f0;
+}
+.utilities-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #718096;
+}
+.utilities-scrollbar::-webkit-scrollbar-button {
+  display: block;
+  height: 14px;
+  background-color: #e2e8f0;
+}
+.utilities-scrollbar::-webkit-scrollbar-button:vertical:single-button:start {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%234a5568'><polygon points='5,0 10,10 0,10'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px;
+}
+.utilities-scrollbar::-webkit-scrollbar-button:vertical:single-button:end {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%234a5568'><polygon points='5,10 0,0 10,0'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px;
+}
+
+.dark .utilities-scrollbar::-webkit-scrollbar-track {
+  background-color: #1a202c;
+}
+.dark .utilities-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #4a5568;
+  border-color: #1a202c;
+}
+.dark .utilities-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #718096;
+}
+.dark .utilities-scrollbar::-webkit-scrollbar-button {
+  background-color: #1a202c;
+}
+.dark .utilities-scrollbar::-webkit-scrollbar-button:vertical:single-button:start {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23a0aec0'><polygon points='5,0 10,10 0,10'/></svg>");
+}
+.dark .utilities-scrollbar::-webkit-scrollbar-button:vertical:single-button:end {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23a0aec0'><polygon points='5,10 0,0 10,0'/></svg>");
+}
+
+.ai-writer-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.ai-writer-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ai-writer-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+.ai-writer-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+.dark .ai-writer-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dark .ai-writer-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+}
+.dark .ai-writer-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #94a3b8;
+  border-radius: 4px;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #64748b;
+}
+.dark .modal-scrollbar::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+.dark .modal-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #475569;
+}
+.dark .modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #64748b;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

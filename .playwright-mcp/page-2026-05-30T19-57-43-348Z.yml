@@ -1,0 +1,22 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - heading "NovaSend" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Sign in to your account to continue
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]: Email Address
+        - textbox "Email Address" [ref=e12]:
+          - /placeholder: you@example.com
+      - generic [ref=e13]:
+        - generic [ref=e14]: Password
+        - textbox "Password" [ref=e15]:
+          - /placeholder: ••••••••
+      - button "Sign In" [ref=e16] [cursor=pointer]:
+        - generic [ref=e18]: Sign In
+    - generic [ref=e20]:
+      - paragraph [ref=e21]:
+        - button "Forgot your password?" [ref=e22] [cursor=pointer]
+      - paragraph [ref=e23]:
+        - text: Don't have an account?
+        - button "Create one" [ref=e24] [cursor=pointer]
