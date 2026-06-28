@@ -4027,7 +4027,12 @@ def get_status():
         campaign_logs_list = [log.to_dict() for log in reversed(recent_logs)]
 
     agent_status = 'Offline'
-    if connected_count > 0:
+    if local_status is not None:
+        if local_status.get('is_running') or (running_campaigns_count > 0 and is_running):
+            agent_status = 'Busy'
+        else:
+            agent_status = 'Online'
+    elif connected_count > 0:
         if running_campaigns_count > 0 and is_running:
             agent_status = 'Busy'
         else:
