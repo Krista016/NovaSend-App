@@ -3841,7 +3841,7 @@ def get_system_logs():
     })
 
 
-@app.route('/api/status', methods=['GET'])
+@app.route('/api/status', methods=['GET', 'POST'])
 @login_required
 def get_status():
     """Get overall agent status for the authenticated user.
@@ -3857,7 +3857,11 @@ def get_status():
     accounts = Account.query.filter_by(user_id=g.current_user.id).all()
 
     # Query local agent status
-    local_status = _get_local_agent_status()
+    local_status = None
+    if request.method == 'POST':
+        local_status = request.json
+    else:
+        local_status = _get_local_agent_status()
     local_connected_id = None
     if local_status and local_status.get("is_connected"):
         local_connected_id = local_status.get("account_id")

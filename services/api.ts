@@ -68,8 +68,24 @@ const AGENT_BASE = 'http://127.0.0.1:5001';
 
 export const agentApi = {
     getStatus: async () => {
-        // Always route through backend /api/status so database updates correctly in real-time.
-        // The backend `/status` internally queries the local agent if online.
+        try {
+            // Try to query the local agent directly from the browser (localhost)
+            const localRes = await fetch('http://127.0.0.1:5001/status');
+            if (localRes.ok) {
+                const localData = await localRes.json();
+                
+                // Sync the local status to the backend via POST
+                return request<any>('/status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(localData),
+                });
+            }
+        } catch (err) {
+            // Local agent is offline or unreachable from browser
+        }
+        
+        // Fallback to normal GET request if local agent is offline
         return request<any>('/status');
     },
 };
